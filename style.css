@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+body {
+    background-color:white
+}
+.wait {
+    background-color: #333;
+    width: 500px;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 6px;
+    position: relative;
+}
+.wait::before {
+    content: "";
+    position: fixed;
+    background-color: blue;
+    width: 300%;
+    height: 100%;
+    top: 35%;
+    left: 50%;
+   margin-top: 100px;
+    border-radius: 50%;
+    z-index: -1;
+    animation: waving 6s ease-in-out infinite alternate;
+}
+.content {
+    margin:  auto;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.c1 {
+    width: 20px;
+    height: 20px;
+    background-color:#0606e9;
+    border-radius: 50%;
+    animation-name: up-down ;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.c2 {
+    width: 20px;
+    height: 20px;
+    background-color: #0606e9;
+    border-radius: 50%;
+    animation-name: up-down ;
+    animation-duration: 1s;
+    animation-delay: .3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.c3 {
+    width: 20px;
+    height: 20px;
+    background-color: #0606e9;
+    border-radius: 50%;
+    animation-name: up-down ;
+    animation-duration: 1s;
+    animation-delay: .6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.load {
+  margin: 20px auto;
+  position: relative;
+  width: fit-content; 
+}
+.load span {
+       
+    font-size: 40px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    color: white;
+    mix-blend-mode: difference;
+}
+.load::before {
+    content: "";
+     position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60px;
+    background-color: white;
+    animation: moveing 4s linear infinite ;
+    line-height: 1;
+}
+.circle {
+    display: block;
+    border-style: solid solid dotted dotted;
+    border-width: 4px;
+    border-color: #0075ff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 40px auto;
+    animation: move-left 2s linear infinite;
+    position: relative;
+}
+.circle::before {
+   content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-width: 4px;
+    border-style: solid dotted;
+    border-color: #009688;;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-top: -31px;
+    margin-left: -31px;
+    animation: move-right 1s linear infinite;
+}
+@keyframes up-down {
+    to {
+        opacity: 0.3;
+        transform: translateY(-10px);
+    }
+}
+@keyframes moveing {
+    0% , 100% {
+        left: 0;
+    }
+    50% {
+        left: calc(100% - 60px);
+    }
+}
+@keyframes  move-left {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes move-right {
+      from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+    
+}
+@keyframes waving {
+    from {
+        transform: translateX(-50%) skew(0,-10deg);
+
+    }
+    to {
+        transform: translateX(-30%) skew(10deg,0);
+    }
+}
